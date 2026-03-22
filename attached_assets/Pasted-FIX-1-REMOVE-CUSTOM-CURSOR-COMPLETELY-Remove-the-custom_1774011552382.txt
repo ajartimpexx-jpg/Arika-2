@@ -1,0 +1,71 @@
+FIX 1 — REMOVE CUSTOM CURSOR COMPLETELY
+Remove the custom cursor dot and circle effect entirely. Delete all custom cursor CSS and JavaScript. Restore the default browser cursor everywhere on the site. The dot following the mouse looks out of place and must be removed completely.
+FIX 2 — ADD FLAGS TO COUNTRIES SECTION
+In the "Trusted by Buyers in 20+ Countries" section, the country codes (US, GB, AE, FR, DE, AU, CA, SG, IT, NL) are showing as plain text with no visual identity. Fix this:
+
+Replace the plain letter codes with actual flag emojis followed by the country name below
+Layout for each country: flag emoji on top (font-size 36px), country name below in Jost ALL CAPS letter-spacing 3px 10px
+The flags should be: 🇺🇸 USA · 🇬🇧 UK · 🇦🇪 UAE · 🇫🇷 France · 🇩🇪 Germany · 🇦🇺 Australia · 🇨🇦 Canada · 🇸🇬 Singapore · 🇮🇹 Italy · 🇳🇱 Netherlands
+Display them in a centered flex row with 40px gap between each
+Each flag should have a very subtle hover effect — scale 1.1 smoothly on hover
+The huge empty white space below the flags row must be removed — reduce section padding to 80px top and bottom so the section is compact and clean
+Add 4 more countries to make it feel more global: 🇯🇵 Japan · 🇸🇦 Saudi Arabia · 🇿🇦 South Africa · 🇸🇪 Sweden
+
+FIX 3 — PRODUCT VARIANT IMAGE CHANGE
+On the individual product detail page, when a user selects a different Wood Type, Finish, or Colour/Stain variant, the main product image must change to reflect that variant. Fix this:
+
+Each variant option (Sheesham Wood, Teak Wood, Mango Wood, Rosewood) should be linked to a different product image
+When a variant pill is clicked, the main image smoothly crossfades (opacity transition 0.4s) to the image corresponding to that variant
+The thumbnail row below the main image should also update to show thumbnails relevant to the selected variant
+If a specific variant image is not available, fall back gracefully to the default product image
+The selected variant pill must always show visually as active (dark fill, cream text)
+Make sure this works for all three variant types — Wood Type, Finish, and Colour/Stain swatches
+
+FIX 4 — COMPLETE FOOTER REBUILD
+The footer still looks very basic and cheap. Completely rebuild it to match the luxury theme of the rest of the site:
+Overall: dark background #111111, cream text #F5F0E8, gold accents #C9A84C. Four columns. Generous padding 80px top and bottom.
+Top ornamental divider: full width thin horizontal line with a centered diamond ——◆—— in gold #C9A84C, lines at 15% white opacity.
+Column 1 — Brand (35% width):
+
+"Arika Handicrafts" in Cormorant Garamond 26px weight 400 cream
+"Handcrafted in Jodhpur, delivered worldwide." in Jost Light 13px line-height 1.8 opacity 55% max-width 260px
+"Est. in Jodhpur, Rajasthan · India" in Jost 10px letter-spacing 3px ALL CAPS opacity 30%
+Social icons: Instagram and WhatsApp each in a 36x36px thin circle border (1px cream 30% opacity). On hover border and icon turn gold #C9A84C with 0.2s transition
+
+Column 2 — Navigate:
+
+Heading "NAVIGATE" in Jost 10px letter-spacing 5px ALL CAPS gold color
+Thin 24px gold underline below heading
+Links in Jost Light 13px cream 55% opacity: Home · About · Collections · Best Sellers · Export · Contact
+On hover: opacity 100%, small "→" appears before text with smooth slide-in
+
+Column 3 — Collections:
+
+Heading "COLLECTIONS" same style as Navigate
+Links: Living Room · Bedroom · Dining Room · Seating · Bar Furniture · Outdoor · Home Decor
+Same hover effect
+
+Column 4 — Get In Touch:
+
+Heading "GET IN TOUCH" same style
+EMAIL label in Jost 9px small caps opacity 35%, then info@arikahandicrafts.com in Jost 13px below with 6px gap
+LOCATION label same style, then "Jodhpur, Rajasthan, India" below — make sure this is plain text NOT a hyperlink
+WHATSAPP label same style, then phone number below
+"SEND INQUIRY" ghost button below: thin 1px cream border 30% opacity, cream text 60% opacity, Jost ALL CAPS letter-spacing 3px, 44px height. On hover border and text turn gold
+
+Newsletter strip (slightly lighter dark background #1A1A1A):
+
+Label "STAY INSPIRED" in Jost 10px letter-spacing 5px gold ALL CAPS centered
+Heading "New collections, artisan stories and behind the scenes from Jodhpur" in Cormorant Garamond 22px cream italic centered max-width 500px
+Email input (dark bg, cream text, thin border) + "SUBSCRIBE" button (cream fill dark text) side by side, 48px height. Button turns gold on hover
+60px padding top and bottom on this strip
+
+Bottom copyright bar (#0D0D0D background, 20px padding):
+
+Left: "© 2026 Arika Handicrafts. All rights reserved." Jost 11px opacity 35%
+Center: "· · ·" gold opacity 30%
+Right: "Handcrafted with pride in India" Jost italic 11px opacity 30%
+
+Make sure on mobile all 4 columns stack vertically centered with 40px padding.
+
+Do all 4 fixes together and show me a preview when done. Push to GitHub when complete.

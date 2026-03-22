@@ -1,0 +1,207 @@
+PART 1 — LOGO SYSTEM
+Create a premium SVG logo as a reusable React component called ArikaLogo. The emblem is a traditional Rajasthani 8-pointed star rosette inspired by hand-carved Jodhpur woodwork. Build it exactly like this:
+The emblem structure:
+
+A thin outer circle
+A second slightly smaller decorative ring inside it
+An 8-pointed star polygon inside (two overlapping squares rotated 45 degrees, points reaching near the inner ring)
+4 tiny filled triangle chisel-marks at top, bottom, left, right cardinal points
+4 tiny filled circles at the 4 diagonal star points
+8 very faint thin spoke lines radiating from center to outer ring
+A small dashed decorative circle at half the radius
+A small filled circle at center with a tiny hollow circle inside it
+Everything drawn in current text color with varying opacity levels for depth
+
+The ArikaLogo component accepts these props:
+
+variant — "stacked", "horizontal", or "icon" — default "horizontal"
+size — "sm", "md", "lg"
+color — "dark" (near black) or "light" (cream #F5F0E8)
+
+VERSION 1 — STACKED (for hero, about page, loading screen):
+
+Emblem 90x90px on top
+"ARIKA" below in Cormorant Garamond, 52px, letter-spacing 14px, ALL CAPS, weight 400
+Thin horizontal lines on each side of a small diamond ornament centered below ARIKA
+"HANDICRAFTS" below in Jost, 11px, letter-spacing 6px, ALL CAPS, opacity 55%
+"JODHPUR  ·  INDIA" below in Jost, 9px, letter-spacing 4px, ALL CAPS, opacity 30%
+
+VERSION 2 — HORIZONTAL (for navbar):
+
+Emblem 32x32px on left
+"ARIKA" to the right in Cormorant Garamond, 22px, letter-spacing 6px, ALL CAPS, weight 400
+Thin vertical 1px divider line after the wordmark, height 24px, opacity 25%
+Two lines to the right of divider: "HANDICRAFTS" in Jost 8px letter-spacing 3px opacity 45%, and "JODHPUR · INDIA" in Jost 7px letter-spacing 2px opacity 30%
+
+VERSION 3 — ICON ONLY (for favicon and watermark):
+
+Just the emblem alone, 48x48px, no text, clean and recognizable at small sizes
+
+Place the logo:
+
+Navbar: ArikaLogo variant="horizontal" size="md"
+Homepage page loader: ArikaLogo variant="stacked" size="lg" on cream background fading out after 1.2 seconds
+Product image bottom right corner: ArikaLogo variant="icon" size="sm" opacity 20% as subtle watermark
+Footer: plain text "Arika Handicrafts" in Cormorant Garamond — no component needed
+
+
+PART 2 — FULL CATEGORY RESTRUCTURE
+Completely rebuild the navigation and collections category structure.
+NAVBAR MEGA MENU:
+Replace the current Collections dropdown with a full-width mega menu panel that appears on hover. Dark background, cream text, gold hover color. Cormorant Garamond for column headings, Jost for links. Organized in these columns:
+Column 1 — LIVING ROOM:
+Cabinets · Sideboards · Chest of Drawers · TV Units · Console Tables · Side & End Tables · Coffee Tables · Shelves & Racks · Trunks · Mirror & Wall Decor
+Column 2 — BEDROOM:
+Beds & Bed Frames · Headboards · Bedside Tables · Wardrobes
+Column 3 — DINING ROOM:
+Dining Tables · Dining Chairs · Dining Sets
+Column 4 — SEATING:
+Sofas & Armchairs · Accent Chairs · Stools · Benches · Poufs & Ottomans · Day Beds
+Column 5 — MORE:
+Bar Tables · Bar Stools · Bar Cabinets · Wine Holders · Garden Tables · Garden Chairs · Outdoor Lounge Sets
+At the bottom of the mega menu: a full-width strip saying "Looking for something custom? Commission a Bespoke Piece →" linking to the Bespoke page.
+COLLECTIONS PAGE — TWO-LEVEL FILTER BAR:
+Level 1 — Room tabs (horizontally scrollable, mouse wheel scrolls this bar):
+ALL · LIVING ROOM · BEDROOM · DINING ROOM · SEATING · BAR FURNITURE · OUTDOOR · HOME DECOR
+Level 2 — When a room tab is clicked, show a second row of subcategory pills:
+
+LIVING ROOM: All · Cabinets · Sideboards · Chest of Drawers · TV Units · Console Tables · Side Tables · Coffee Tables · Trunks · Wall Decor
+BEDROOM: All · Beds · Headboards · Bedside Tables · Wardrobes
+DINING ROOM: All · Dining Tables · Dining Chairs · Dining Sets
+SEATING: All · Sofas · Chairs · Stools · Benches · Ottomans · Day Beds
+BAR FURNITURE: All · Bar Tables · Bar Stools · Bar Counters · Bar Cabinets · Wine Holders
+OUTDOOR: All · Garden Tables · Garden Chairs · Lounge Sets · Benches
+HOME DECOR: All · Wall Decor · Lighting · Metal & Iron · Wooden Crafts
+
+Filter tab styling — PREMIUM VERSION:
+
+Make the filter tabs significantly more premium. Each tab should have generous padding (16px horizontal, 10px vertical), thin border (1px), Jost font 10px letter-spacing 3px ALL CAPS
+Active tab: dark filled background, cream text, no border
+Inactive tab: transparent background, dark border at 30% opacity, dark text at 60% opacity
+On hover: border darkens to 80% opacity, text goes to 100% opacity
+Smooth 0.2s transition on all states
+The tab bar must support horizontal mouse wheel scrolling — when user scrolls the mouse wheel while hovering over the tab bar, it scrolls left/right instead of up/down the page. Add this JavaScript behavior.
+Add very subtle left and right fade gradient edges on the tab bar to indicate it is scrollable
+
+HOMEPAGE COLLECTIONS GRID:
+Replace current collections grid with 6 room-based cards in an asymmetric layout — Living Room card spans double width, rest are equal. Each card: full background image, dark overlay, room name in Cormorant Garamond white, "Explore" in gold small caps. Hover: image scale 1.04, overlay slightly darker.
+
+PART 3 — CRITICAL BUG FIXES
+BUG FIX 1 — PRODUCT CARDS NOT CLICKABLE
+This is the most critical fix. Currently when a user clicks on any product card, nothing happens — no product page opens. Fix this immediately:
+
+Every product card across the entire website must be fully clickable
+Clicking anywhere on the card (image, name, price, or card background) must navigate to that product's individual detail page
+Make sure the routing is properly set up in React so each product has its own URL like /product/carved-side-table
+The entire card should have cursor: pointer on hover
+Remove any broken onClick handlers and replace with proper React Router Link or navigation
+
+BUG FIX 2 — BUILD COMPLETE INDIVIDUAL PRODUCT DETAIL PAGE
+Create a fully functional, premium product detail page that opens when any product is clicked. The page must include all of the following:
+TOP SECTION — two column layout (image left, details right):
+LEFT COLUMN — Image Gallery:
+
+Large main product image displayed prominently
+Below it: a row of thumbnail images (3 to 5 thumbnails)
+Clicking any thumbnail swaps the main image smoothly with a fade transition
+Left and right arrow buttons on the main image for prev/next navigation
+The Arika icon watermark appears at bottom right of main image at 20% opacity
+Image should support a subtle zoom on hover (cursor magnify feel)
+
+RIGHT COLUMN — Product Details:
+
+Small breadcrumb at top: Home > Collections > [Category] > [Product Name]
+Product name in Cormorant Garamond, 36px, Mixed Case
+Product code below the name in Jost small caps, letter-spacing 3px, opacity 40% — example: "SKU: AHC-001"
+Star rating display (5 stars, filled gold) with review count
+Price in Jost, 22px — show both USD and INR if possible
+Thin gold divider line
+Short description in Jost Light, 15px, line-height 1.8
+VARIANT SELECTORS — show these as elegant option selectors:
+
+Wood Type: Sheesham Wood · Teak Wood · Mango Wood · Rosewood (clickable pills, selected pill gets dark fill)
+Finish: Natural · Walnut · Ebony · Antique (clickable pills)
+Size: Small · Medium · Large · Custom (clickable pills) — when Custom is selected, show a small text input for custom dimensions
+Color/Stain: show as small color circle swatches (brown tones)
+
+
+Quantity selector: minus button, number input, plus button — elegant and minimal
+Two CTA buttons stacked:
+
+Primary: "ADD TO CART" — full width, dark filled, cream text, Jost ALL CAPS
+Secondary: "ENQUIRE ABOUT THIS PIECE" — full width, ghost button, thin border
+
+
+Below buttons: WhatsApp icon with text "Chat directly on WhatsApp" — links to WhatsApp
+Three trust badges in a row below: Handcrafted · Export Quality · Custom Sizes Available
+Expandable accordion sections below trust badges:
+
+"About the Material" — description of the wood type
+"Dimensions & Specifications" — table of dimensions
+"Shipping & Export" — export info
+"Care Instructions" — how to maintain the piece
+Each accordion opens with a smooth slide-down animation, arrow rotates on open/close
+
+
+
+BOTTOM OF PRODUCT PAGE:
+Product tabs section:
+
+Description tab: full detailed product description
+Reviews tab: show 3 sample customer reviews with star ratings, reviewer name, location, date
+Shipping tab: export and shipping information
+
+SIMILAR PRODUCTS SECTION:
+
+Heading: "You May Also Like" in Cormorant Garamond
+Show 4 product cards from the same category
+Same premium card styling as the collections page
+Horizontal scrollable row on mobile
+
+RECENTLY VIEWED SECTION:
+
+Below similar products: "Recently Viewed" section showing last 3 products visited in this session
+
+BUG FIX 3 — INQUIRY FORM COMPLETELY REBUILT
+The current inquiry form has overlapping text and clustered layout. Completely rebuild it with proper spacing:
+New layout — two column on desktop, single column on mobile:
+LEFT COLUMN:
+
+Small label: "GET IN TOUCH" in Jost small caps, letter-spacing 4px
+Heading: "Inquire Now" in Cormorant Garamond, 48px — with generous margin below
+Description paragraph with proper line-height 1.8 and max-width 420px so text never goes too wide or overlaps
+EMAIL section: label "EMAIL" in small caps above, email address in Jost below — proper spacing between label and value (minimum 8px)
+LOCATION section: label "LOCATION" in small caps above, location text below — same spacing
+PHONE section: add a phone number field here
+WhatsApp button: properly sized, minimum 44px height, icon and text properly aligned horizontally with 8px gap between icon and text, full text "WHATSAPP US" visible — never truncated or overlapping
+
+RIGHT COLUMN:
+
+All form fields rebuilt with proper spacing:
+
+Each field: label in Jost small caps 10px letter-spacing 3px ABOVE the input (not inside it as placeholder only)
+Input fields: full width, minimum 48px height, 16px padding, thin 1px border, no harsh outlines
+NAME field
+EMAIL field
+WHATSAPP NUMBER field (new)
+SUBJECT dropdown: General Inquiry · Bulk/Export Order · Custom Piece · Price Quote
+MESSAGE textarea: minimum 140px height, resize: vertical only
+
+
+SEND INQUIRY button: full width, dark filled, cream text, Jost ALL CAPS, 52px height, letter-spacing 3px
+Below button: small reassurance text "We respond within 24 hours" in italic Jost, opacity 50%
+
+The entire section background: light cream (#F5F0E8), generous padding 80px top and bottom on desktop, 48px on mobile. No element should overlap or crowd any other element.
+BUG FIX 4 — CATEGORY MOUSE WHEEL SCROLL
+On the collections page filter tab bar: add JavaScript so that when the user's mouse is hovering over the tab bar and they scroll the mouse wheel, the bar scrolls horizontally left and right instead of the page scrolling vertically. This should feel smooth and natural. Also add this same behavior to any other horizontal scroll section on the site (like the similar products row).
+
+PART 4 — ADDITIONAL PREMIUM FINISHES
+
+Add AOS scroll animations (fade-up, 800ms, offset 100) to every section that doesn't already have it
+Add a 2px gold (#C9A84C) scroll progress bar fixed at the very top of the browser window that fills as user scrolls
+Add a custom cursor on desktop: small 8px filled dot that follows mouse, expands to 28px hollow circle on hover over buttons and images
+Make the navbar sticky with frosted glass blur background when scrolled past 50px
+Add a floating WhatsApp button fixed bottom right: green circle (#25D366), pulsing ring animation, tooltip "Chat with us" on hover
+Add a back-to-top arrow button fixed bottom right above WhatsApp button, only visible after scrolling 400px
+Increase vertical padding on every homepage section to minimum 100px top and bottom
+On all product images sitewide: smooth zoom scale 1.04 on hover, 0.6s ease, overflow hidden on container

@@ -1,0 +1,48 @@
+Please fix the SEND INQUIRY button in the footer. Currently clicking it does nothing. Make it open a beautiful modal popup form when clicked. Here is exactly how it should work:
+THE MODAL POPUP
+When the user clicks SEND INQUIRY in the footer, a full-screen dark overlay appears (background black 70% opacity) and a centered modal card slides up smoothly from the bottom (0.35s ease transition).
+Modal card styling:
+
+Background: cream #F5F0E8
+Padding: 48px on desktop, 28px on mobile
+Max width: 560px, centered on screen
+Rounded corners: 4px (subtle, not bubbly)
+A thin gold (#C9A84C) top border line 2px full width at the very top of the modal
+
+Modal content:
+
+Top right: an X close button in Jost, 20px, dark color, clicking it closes the modal smoothly
+Small label at top: "GET IN TOUCH" in Jost, 10px, letter-spacing 5px, ALL CAPS, gold color
+Heading: "Send Us an Inquiry" in Cormorant Garamond, 32px, dark color, weight 400
+Short subtext: "We respond within 24 hours. Whether you need a single piece or a full container — we are here." in Jost Light, 13px, opacity 65%, line-height 1.8
+
+Form fields below (all full width, stacked vertically with 20px gap between each):
+
+NAME — label in Jost small caps 10px letter-spacing 3px above the input. Input: 48px height, thin 1px border #C9A84C at 40% opacity, background white, Jost 14px. Placeholder: "Your full name". REQUIRED.
+EMAIL — same styling. Placeholder: "your@email.com". REQUIRED.
+CONTACT NUMBER — same styling. Placeholder: "+91 or international number". Mark as "(Optional)" next to the label in italic opacity 40%.
+SUBJECT — a styled dropdown select. Same border styling. Options: "Select a subject" (default disabled) · General Inquiry · Bulk / Export Order · Custom Piece Request · Price Quote · Other.  REQUIRED.
+MESSAGE — textarea, same border styling, minimum height 120px, resize vertical only. Placeholder: "Tell us about what you are looking for...". REQUIRED.
+
+Submit button:
+
+Full width, 52px height
+Dark background #1C1C1C, cream text #F5F0E8
+"SEND INQUIRY" in Jost ALL CAPS letter-spacing 3px 11px
+On hover: background turns gold #C9A84C, text stays cream
+Smooth 0.2s transition
+
+Below submit button:
+
+Small centered text: "🔒 Your information is private and never shared" in Jost 11px opacity 40%
+
+CLOSING THE MODAL
+
+Clicking the X button closes it
+Clicking outside the modal (on the dark overlay) also closes it
+Press Escape key also closes it
+All close actions have a smooth fade-out transition
+
+MOBILE BEHAVIOR
+On mobile the modal should take up 95% of screen width, slide up from the bottom like a bottom sheet, and have a small drag handle bar at the top center.
+Please implement this and make sure it works when SEND INQUIRY is clicked anywhere on the site — footer button and any other inquiry buttons. Push to GitHub when done.
